@@ -1,4 +1,4 @@
-# Used Card Price Prediction Workflow
+# House Price Prediction Workflow
 
 ## Stages of the MLOps Project
 
