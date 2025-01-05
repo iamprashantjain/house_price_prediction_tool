@@ -4,7 +4,7 @@
 date=$(date)
 
 echo "[$date]: START"
-echo "[$date]: creating venv"
+echo "[$date]: creating venv with python 3.8"
 
 # Create the virtual environment
 virtualenv -p python venv 
@@ -19,6 +19,5 @@ pip install -r requirements_dev.txt
 
 echo "[$date]: pip upgrade"
 python.exe -m pip install --upgrade pip
-
 
 echo "[$date]: END"
