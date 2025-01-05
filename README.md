@@ -1,5 +1,7 @@
 # House Price Prediction Workflow
 
+![alt text](image.png)
+
 ## Stages of the MLOps Project
 
 **Pre-Preparation**
