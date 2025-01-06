@@ -46,18 +46,3 @@ class DataIngestion:
         except Exception as e:
             logging.error(f"Error during data ingestion: {str(e)}")
             raise customexception(e, sys)
-
-
-# if __name__ == "__main__":
-#     try:
-#         # Initialize the DataIngestion class
-#         obj = DataIngestion()
-        
-#         # Start the data ingestion process and get the path of the saved merged file
-#         merged_file_path = obj.initiate_data_ingestion()
-        
-#         # Log the location of the merged file
-#         logging.info(f"Merged file saved at: {merged_file_path}")
-    
-#     except Exception as e:
-#         raise customexception(e, sys)

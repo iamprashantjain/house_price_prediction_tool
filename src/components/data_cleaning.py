@@ -1,15 +1,27 @@
-import os
-import sys
+from datetime import datetime
 import pandas as pd
 import numpy as np
-import re
-import ast
 from src.logger.logging import logging
 from src.exception.exception import customexception
+
+import os
+import sys
+import ast
+import re
+from sklearn.model_selection import train_test_split
+from dataclasses import dataclass
+from pathlib import Path
+
+@dataclass
+class DataCleaningConfig:
+    raw_data_path: str = os.path.join("data", "99acre_raw_data", "raw.xlsx")
+    train_data_path: str = os.path.join("data", "99acre_raw_data", "train.xlsx")
+    test_data_path: str = os.path.join("data", "99acre_raw_data", "test.xlsx")
 
 class DataCleaning:
     def __init__(self, merged_data_path: str):
         self.merged_data_path = merged_data_path
+        self.cleaning_config = DataCleaningConfig()
 
     def _clean_data(self, data: pd.DataFrame) -> pd.DataFrame:
         """
@@ -410,31 +422,30 @@ class DataCleaning:
             # Perform the cleaning operations
             cleaned_data = self._clean_data(data)
             
-            # Save the cleaned data
-            cleaned_data_path = self.merged_data_path.replace("99acres_raw_data.csv", "99acres_cleaned_data.csv")
-            cleaned_data.to_csv(cleaned_data_path, index=False)
-            logging.info(f"Cleaned data saved at: {cleaned_data_path}")
+            # Ensure the directory for saving files exists
+            os.makedirs(os.path.dirname(self.cleaning_config.raw_data_path), exist_ok=True)
+
+            # Save the cleaned data to the specified path
+            cleaned_data.to_excel(self.cleaning_config.raw_data_path, index=False)
+            logging.info(f"Raw cleaned data saved to: {self.cleaning_config.raw_data_path}")
+
+            # Perform train-test split (75% train, 25% test)
+            logging.info("Train-test split started")
+            train_data, test_data = train_test_split(cleaned_data, test_size=0.25)
+            logging.info("Train-test split completed")
+
+            # Save the train and test datasets to specified paths
+            train_data.to_excel(self.cleaning_config.train_data_path, index=False)
+            test_data.to_excel(self.cleaning_config.test_data_path, index=False)
             
-            return cleaned_data_path
+            logging.info(f"Train data saved to: {self.cleaning_config.train_data_path}")
+            logging.info(f"Test data saved to: {self.cleaning_config.test_data_path}")
+
+            logging.info("Data cleaning completed successfully.")
+            
+            # Return train & test data paths
+            return self.cleaning_config.train_data_path, self.cleaning_config.test_data_path
 
         except Exception as e:
             logging.error(f"Error during data cleaning: {str(e)}")
             raise customexception(e, sys)
-
-
-# if __name__ == "__main__":
-#     try:
-#         # The merged file path from the data ingestion component
-#         merged_file_path = "data/99acre_raw_data/99acres_raw_data.csv"
-        
-#         # Initialize the DataCleaning class
-#         data_cleaning_obj = DataCleaning(merged_data_path=merged_file_path)
-        
-#         # Start the data cleaning process and get the path of the cleaned file
-#         cleaned_file_path = data_cleaning_obj.initiate_data_cleaning()
-        
-#         # Log the location of the cleaned file
-#         logging.info(f"Cleaned file saved at: {cleaned_file_path}")
-    
-#     except Exception as e:
-#         logging.error(f"An error occurred during data cleaning: {str(e)}")

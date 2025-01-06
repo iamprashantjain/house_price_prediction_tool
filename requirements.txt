@@ -1,11 +1,17 @@
 pandas
+openpyxl
 scikit-learn
 numpy
 seaborn
 flask
-mlflow===2.2.2
+mlflow
 dvc
+xgboost
+apache-airflow
+lightgbm
+catboost
+statsmodels
+xgboost
 
-#dev_requirements
 
 -e .
