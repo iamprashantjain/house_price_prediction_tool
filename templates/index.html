@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Tool</title>
+</head>
+<body>
+    <h1>House Price Prediction Tool</h1>
+    <form action="/predict" method="POST">
+        <!-- Numerical Features -->
+        <h3>Enter Numerical Features</h3>
+        <label for="bedRoom">Bedrooms:</label>
+        <input type="number" step="any" id="bedRoom" name="bedRoom" required><br><br>
+
+        <label for="bathroom">Bathrooms:</label>
+        <input type="number" step="any" id="bathroom" name="bathroom" required><br><br>
+
+        <label for="balcony">Balcony:</label>
+        <input type="number" step="any" id="balcony" name="balcony" required><br><br>
+
+        <label for="floor_nbr">Floor Number:</label>
+        <input type="number" step="any" id="floor_nbr" name="floor_nbr" required><br><br>
+
+        <label for="additional_room_count">Additional Rooms:</label>
+        <input type="number" step="any" id="additional_room_count" name="additional_room_count" required><br><br>
+
+        <label for="furnishDetails_count">Furnish Details Count:</label>
+        <input type="number" step="any" id="furnishDetails_count" name="furnishDetails_count" required><br><br>
+
+        <label for="features_count">Features Count:</label>
+        <input type="number" step="any" id="features_count" name="features_count" required><br><br>
+
+        <label for="Environment">Environment:</label>
+        <input type="number" step="any" id="Environment" name="Environment" required><br><br>
+
+        <label for="Safety">Safety:</label>
+        <input type="number" step="any" id="Safety" name="Safety" required><br><br>
+
+        <label for="Lifestyle">Lifestyle:</label>
+        <input type="number" step="any" id="Lifestyle" name="Lifestyle" required><br><br>
+
+        <label for="Connectivity">Connectivity:</label>
+        <input type="number" step="any" id="Connectivity" name="Connectivity" required><br><br>
+
+        <label for="Green_Area">Green Area:</label>
+        <input type="number" step="any" id="Green_Area" name="Green_Area" required><br><br>
+
+        <label for="Amenities">Amenities:</label>
+        <input type="number" step="any" id="Amenities" name="Amenities" required><br><br>
+
+        <label for="Management">Management:</label>
+        <input type="number" step="any" id="Management" name="Management" required><br><br>
+
+        <label for="Construction">Construction:</label>
+        <input type="number" step="any" id="Construction" name="Construction" required><br><br>
+
+        <label for="nearbyLocations_count">Nearby Locations Count:</label>
+        <input type="number" step="any" id="nearbyLocations_count" name="nearbyLocations_count" required><br><br>
+
+        <label for="agePossession_avg">Age Possession Average:</label>
+        <input type="number" step="any" id="agePossession_avg" name="agePossession_avg" required><br><br>
+
+        <label for="total_area_in_sqft">Total Area (sqft):</label>
+        <input type="number" step="any" id="total_area_in_sqft" name="total_area_in_sqft" required><br><br>
+
+        <label for="rate_per_sqft">Rate per sqft:</label>
+        <input type="number" step="any" id="rate_per_sqft" name="rate_per_sqft" required><br><br>
+
+        <!-- Categorical Features -->
+        <h3>Enter Categorical Features</h3>
+
+        <label for="facing">Facing:</label>
+        <input type="text" id="facing" name="facing" required><br><br>
+
+        <label for="property_type">Property Type:</label>
+        <input type="text" id="property_type" name="property_type" required><br><br>
+
+        <label for="prop_location">Property Location:</label>
+        <input type="text" id="prop_location" name="prop_location" required><br><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if predicted_price %}
+    <h3>Predicted Price: {{ predicted_price }}</h3>
+    <h4>Confidence Interval: {{ ci_lower }} to {{ ci_upper }}</h4>
+    {% endif %}
+</body>
+</html>

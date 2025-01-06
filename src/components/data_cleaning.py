@@ -205,7 +205,6 @@ class DataCleaning:
         # Concatenate with the original DataFrame
         df = pd.concat([df, rating_df], axis=1)
         
-        
         #filter df
         df[['Environment', 'Safety', 'Lifestyle', 'Connectivity', 'Green Area', 'Amenities', 'Management', 'Construction']] = df[['Environment', 'Safety', 'Lifestyle', 'Connectivity', 'Green Area', 'Amenities', 'Management', 'Construction']].fillna(0)
         
@@ -399,7 +398,6 @@ class DataCleaning:
         df = df.drop(columns=['rate'])  # Drop the old 'rate' column
         
         
-        
         #bedroom bathroom balcony
         df['bedRoom'] = df['bedRoom'].astype(str).str.extract('(\d+)').fillna(0).astype(int)
         df['bathroom'] = df['bathroom'].astype(str).str.extract('(\d+)').fillna(0).astype(int)
@@ -407,7 +405,7 @@ class DataCleaning:
         
         
         #remove extra cols
-        df.drop(columns=['rating_dict', 'link', 'description', 'property_id'], inplace=True)
+        df.drop(columns=['rating_dict', 'link', 'description', 'property_id', 'areaWithType'], inplace=True)
         
         return df
 
