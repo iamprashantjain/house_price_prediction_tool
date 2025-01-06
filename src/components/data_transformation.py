@@ -12,7 +12,7 @@ from src.utils.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path = os.path.join("data", "99acre_raw_data", "preprocessor.pkl")
+    preprocessor_obj_file_path = os.path.join("data", "preprocessor.pkl")
 
 class DataTransformation:
 

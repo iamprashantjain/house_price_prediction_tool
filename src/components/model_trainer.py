@@ -22,8 +22,8 @@ import joblib
 
 @dataclass
 class ModelTrainerConfig:
-    trained_model_file_path = os.path.join("data", "99acre_raw_data" "model.pkl")
-    trained_model_type_path = os.path.join("data", "99acre_raw_data" "model_type.pkl")  # Add path to save model type
+    trained_model_file_path = os.path.join("data", "model.pkl")
+    # trained_model_type_path = os.path.join("data", "model_type.pkl")  # Add path to save model type
 
 
 class ModelTrainer:
@@ -90,11 +90,14 @@ class ModelTrainer:
                 # Save the best model
                 save_object(file_path=self.model_trainer_config.trained_model_file_path, obj=best_model)
                 logging.info("model.pkl file saved in artifacts")
-                joblib.dump(best_model_name, self.model_trainer_config.trained_model_type_path)  # Save model type
+                # joblib.dump(best_model_name, self.model_trainer_config.trained_model_type_path)  # Save model type
 
             except Exception as e:
                 logging.info('Exception occurred during model training')
                 raise customexception(e, sys)
+
+
+
 
 # =============== applying feature selection: rfe =============================
 
