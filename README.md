@@ -5,9 +5,15 @@
 check detailed information about this project and tools used in the file: `mlops_intro.ipynb`
 
 
+# House Price Prediction Workflow
+
+![alt text](image.png)
+
+check detailed information about this project and tools used in the file: `mlops_intro.ipynb`
+
 # House Price Prediction Machine Learning Project
 
-This repository contains the implementation of a **House Price Prediction** machine learning model using data scraped from [MagicBricks](https://www.magicbricks.com), a leading real estate platform. The project encompasses the entire Machine Learning lifecycle, from data scraping and cleaning to model deployment and monitoring, utilizing state-of-the-art MLOps tools for version control, pipeline orchestration, and model management.
+This repository contains the implementation of a **House Price Prediction** machine learning model using data 99Acres from Kaggle, a leading real estate platform. The project encompasses the entire Machine Learning lifecycle, from cleaning to model deployment and monitoring, utilizing state-of-the-art MLOps tools for version control, pipeline orchestration, and model management.
 
 ## Project Overview
 
@@ -15,39 +21,36 @@ The goal of this project is to build a machine learning model that predicts hous
 
 ## Key Components
 
-1. **Data Scraping**:
-   - Data was scraped from MagicBricks.com using **web scraping techniques** (using libraries like `requests` and `BeautifulSoup`).
-   - The dataset contains information about properties such as price, location, floor size, number of rooms, amenities, and more.
 
-2. **Data Cleaning & Preprocessing**:
+1. **Data Cleaning & Preprocessing**:
    - Missing values were handled, irrelevant columns were removed, and outliers were detected and treated.
    - Data types were corrected, and feature scaling and normalization were applied where necessary.
 
-3. **Exploratory Data Analysis (EDA)**:
+2. **Exploratory Data Analysis (EDA)**:
    - Performed detailed exploratory data analysis (EDA) to understand the underlying patterns in the data and identify key features that influence house prices.
    - Various visualizations, such as scatter plots, histograms, and heatmaps, were used to analyze relationships between features and target variables.
 
-4. **Feature Engineering**:
+3. **Feature Engineering**:
    - Created new features based on existing data (e.g., extracted the floor number, building age, proximity to key locations, etc.).
    - Encoded categorical features and handled date/time variables.
 
-5. **Model Building**:
+4. **Model Building**:
    - Applied several machine learning models, including Linear Regression, Random Forest, and Gradient Boosting, to predict house prices.
    - Hyperparameter tuning was performed using cross-validation techniques to optimize model performance.
 
-6. **Model Evaluation**:
+5. **Model Evaluation**:
    - Evaluated models based on various metrics, including **RMSE**, **MAE**, and **R-squared**.
    - Used performance plots to compare the models and determine the best-performing one.
 
-7. **Model Deployment with MLOps**:
+6. **Model Deployment with MLOps**:
    - Deployed the trained model using **MLFlow** for model management and versioning.
    - Used **Docker** to containerize the application for easy deployment and scaling.
    - **Airflow** was used for orchestrating the pipeline, automating tasks such as data scraping, model training, and evaluation.
    
-8. **Data Version Control (DVC)**:
+7. **Data Version Control (DVC)**:
    - Utilized **DVC** for version control of large datasets and model files, ensuring reproducibility and traceability of experiments.
 
-9. **MLOps Tools**:
+8. **MLOps Tools**:
    - Implemented a complete MLOps pipeline for continuous integration and deployment of machine learning models.
    - Managed and tracked experiments, data, and models with **Git**, **DVC**, **MLFlow**, and **Docker**.
 
