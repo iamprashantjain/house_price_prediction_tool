@@ -4,7 +4,7 @@
 date=$(date)
 
 echo "[$date]: START"
-echo "[$date]: creating venv with python 3.8"
+echo "[$date]: creating venv"
 
 # Create the virtual environment
 virtualenv -p python venv 

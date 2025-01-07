@@ -1,0 +1,17 @@
+stages:
+  training:
+    cmd: python src\pipeline\training_pipeline.py
+    deps:
+      - src\pipeline\training_pipeline.py
+      - src\components\data_ingestion.py
+      - src\components\data_cleaning.py
+      - src\components\data_transformation.py
+      - src\components\model_trainer.py
+
+    outs:
+      - data\99acre_raw_data\raw.xlsx
+      - data\99acre_raw_data\train.xlsx
+      - data\99acre_raw_data\test.xlsx
+      - data\preprocessor.pkl
+      - data\model.pkl
+

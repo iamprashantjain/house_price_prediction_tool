@@ -1,0 +1,41 @@
+version: "3"
+services:
+  airflow:
+    build:
+      context: ./ 
+      dockerfile: Dockerfile.airflow
+    image: airflowimage
+    container_name: house-price-prediction_airflow
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW_ENV=production
+    networks:
+      - my_network
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]  # Check if the web server is responding
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+  flaskapp:
+    build:
+      context: ./ 
+      dockerfile: Dockerfile.flask
+    image: flaskimage
+    container_name: house-price-prediction_flask
+    ports:
+      - "80:80"
+    networks:
+      - my_network
+        
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+networks:
+  my_network:
+    driver: bridge
