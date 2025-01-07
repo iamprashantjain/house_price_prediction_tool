@@ -1,13 +1,8 @@
-# House Price Prediction Workflow
+# House Price Prediction Machine Learning Project
 
 ![alt text](image.png)
 
 check detailed information about this project and tools used in the file: `mlops_intro.ipynb`
-
-
-check detailed information about this project and tools used in the file: `mlops_intro.ipynb`
-
-# House Price Prediction Machine Learning Project
 
 This repository contains the implementation of a **House Price Prediction** machine learning model using data 99Acres from Kaggle, a leading real estate platform. The project encompasses the entire Machine Learning lifecycle, from cleaning to model deployment and monitoring, utilizing state-of-the-art MLOps tools for version control, pipeline orchestration, and model management.
 
