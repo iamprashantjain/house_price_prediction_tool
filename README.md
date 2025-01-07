@@ -114,4 +114,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Deployment
 
-We can deploy this project on AWS ElasticBeanStalk, create a Continous Deployment pipeline and connect our github. This way we can easily deploy the project for public use. If we make any changes to github, It will deploy the project with new updates.
+1. AWS ElasticBeanstalk: We can deploy this project on AWS ElasticBeanStalk, create a Continous Deployment pipeline and connect our github. This way we can easily deploy the project for public use. If we make any changes to github, It will deploy the project with new updates.
+
+2. AWS ECR + EC2: As soon as we push the code update on github, We can setup "continous Integration" pipeline which will perform unit & integrate test, Creates private docker image (ECR repo) just like dockerhub for aws "continous delivery" and deploy the image on AWS EC2 "continous deployment".
+
+3. Azure Webapps: Same as above where we used aws ec2, we can deploy our docker image in azure container registry and deploy it to azure webapps. CI, CD, CD
