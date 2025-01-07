@@ -111,3 +111,7 @@ Feel free to fork the repository and submit pull requests. Contributions to impr
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Deployment
+
+We can deploy this project on AWS ElasticBeanStalk, create a Continous Deployment pipeline and connect our github. This way we can easily deploy the project for public use. If we make any changes to github, It will deploy the project with new updates.
